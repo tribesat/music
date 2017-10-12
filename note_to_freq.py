@@ -33,7 +33,8 @@ def note_to_freq(note: str) -> float:
     else:
         raise Exception("Incorrectly formatted note input")
 
-    C4_freq = 261.63 * 2 ** (octave - 4)
-    freq = C4_freq * 2 ** (distance / 12)
+    C_freq = 261.63 * 2 ** (octave - 4)
+    freq = C_freq * 2 ** (distance / 12)
 
     return freq
+
