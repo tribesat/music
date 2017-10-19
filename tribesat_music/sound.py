@@ -50,7 +50,7 @@ class Sound:
         data = array('h')  # signed short integer (-32768 to 32767) data
         sampleRate = 44100  # of samples per second (standard)
         numSamplesPerCyc = int(sampleRate / frequency)
-        numSamples = sampleRate * duration
+        numSamples = int(sampleRate * duration)
 
         for i in range(numSamples):
             sample = 32767 * float(volume) / 100
