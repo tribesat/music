@@ -58,7 +58,10 @@ class Sound:
                                (i % numSamplesPerCyc) / numSamplesPerCyc)
             data.append(int(sample))
 
-        return Sound(data)
+        return Sound(data) #returns all sounds
+        #return int(sample) #returns converted sample
+
+    
 
     def write_to_file(self, filename: str):
         """
