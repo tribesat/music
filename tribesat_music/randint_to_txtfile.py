@@ -4,10 +4,10 @@ arr = []
 inst = []
 index = []
 for n in range(7):
-    for i in range(20):
-        x = randint(0,50)
+    for i in range(15):
+        x = randint(0,500)
         inst.append(x)
     arr.append(inst)
 #print(arr)
 #print(index)
-np.savetxt('test_data.txt', arr, fmt="%1.4e")
+np.savetxt('test_data3.txt', arr, fmt="%1.4e")

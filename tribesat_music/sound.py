@@ -49,7 +49,10 @@ class Sound:
         """
         data = array('h')  # signed short integer (-32768 to 32767) data
         sampleRate = 44100  # of samples per second (standard)
-        numSamplesPerCyc = int(sampleRate / frequency)
+        if frequency == 0:
+            numSamplesPerCyc = 1
+        else:
+            numSamplesPerCyc = int(sampleRate / frequency)
         numSamples = int(sampleRate * duration)
 
         for i in range(numSamples):
@@ -58,10 +61,17 @@ class Sound:
                                (i % numSamplesPerCyc) / numSamplesPerCyc)
             data.append(int(sample))
 
-        return Sound(data) #returns all sounds
-        #return int(sample) #returns converted sample
+        #return Sound(data) #returns all sounds
+        return int(sample) #returns converted sample
 
-    
+    def to_MIDI(self, data):
+        freq = self.from_freq(data)
+        print(freq)
+        if freq == 0:
+            mv = 0
+        else:
+            mv = 69 + 12 * math.log(abs(freq/440))/math.log(2)
+        return int(abs(mv))
 
     def write_to_file(self, filename: str):
         """
