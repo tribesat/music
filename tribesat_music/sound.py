@@ -66,7 +66,6 @@ class Sound:
 
     def to_MIDI(self, data):
         freq = self.from_freq(data)
-        print(freq)
         if freq == 0:
             mv = 0
         else:

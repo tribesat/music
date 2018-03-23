@@ -20,19 +20,20 @@ def TXT_to_MIDI(txtfile):
     #time = 0 #start time
     channel = 0 #1-16 MIDI channels
     tempo = 60 #BPM
-
     for inst in range(sensors):
         track = inst
         time = 0
         mf.addTempo(track, time, tempo)
+        
         for i in range(len(data[inst])):
             currentData = data[inst][i]
             pitch = data_to_pitch(currentData)
             mf.addNote(track, channel, pitch, time, duration, volume)
             time += 1
-        channel +=1
+        #channel +=1
+
 #need new method mapping scalar frequencies to MIDI  values
-    with open('output4.mid', 'wb') as output_file:
+    with open('output5.mid', 'wb') as output_file:
         mf.writeFile(output_file)
 
 
@@ -42,4 +43,4 @@ def data_to_pitch(sensorData):
     return int(freq)
     #convert data to frequency for note on scale
 
-TXT_to_MIDI('test_data3.txt')
+TXT_to_MIDI('test_data5.txt')
